@@ -16,8 +16,8 @@ class PostsController < ApplicationController
 	end
 
 	def create
-		@post = Post.new(params[:post])
 		@user = current_user
+		@post = Post.new(params[:post].merge(user_id: @user.id))
 		if @post.save
 			flash[:notice] = "Your thoughts are in the world now"
 			redirect_to posts_path
