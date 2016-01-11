@@ -1,0 +1,12 @@
+<h1>All Users</h1>
+
+<p><%= link_to "New User", new_user_path %></p>
+
+<% @users.each do |t| %>
+	<h2><%= t.username %></h2>
+	<p><%= t.email %></p>
+	<p><%= link_to "Show User", user_path(t) %></p>
+	<p><%= link_to "Edit User", edit_user_path(t) %></p>
+	<p><%= link_to "Delete User", t, method: :delete %></p>
+	<br>
+<% end %>

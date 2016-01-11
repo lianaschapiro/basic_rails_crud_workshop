@@ -7,6 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+		
+	<% if @current_user %>
+		<p>Logged in as <%= @current_user.username %></p>
+	<% end %>
+
+		<a href="/login">Log In</a>
+		<a href="/logout">Log Out</a>
 		<% if flash[:notice] %>
 			<%= flash[:notice] %>
 		<% end %>

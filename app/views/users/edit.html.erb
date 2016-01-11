@@ -1,0 +1,11 @@
+<h1>Edit User Info</h1>
+
+<%= form_for @user do |t| %>
+	<%= t.label :username %>
+	<%= t.text_field :username %>
+	<%= t.label :password %>
+	<%= t.password_field :password %>
+	<%= t.submit :update %>
+<% end %>
+
+<p><%= link_to "Home", users_path %></p>

@@ -1,0 +1,13 @@
+<h1><%= @user.username %>'s profile</h1>
+<p>email: <%= @user.email %></p>
+	<h2><%= @user.username %>'s posts</h2>
+	<% @posts.each do |t| %>
+		<p> <%= t.title %></p>
+		<p> <%= t.body %></p>
+		<hr>
+	<% end %>
+
+<p><%= link_to "Edit User", edit_user_path(@user) %></p>
+<p><%= link_to "Delete User", user_path(@user), method: :delete %></p>
+
+<p><%= link_to "Home", users_path %></p>

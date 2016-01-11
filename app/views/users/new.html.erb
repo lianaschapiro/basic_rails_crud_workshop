@@ -1,0 +1,13 @@
+<h1>Sign Up:</h1>
+
+<%= form_for @post do |t| %>
+	<%= t.label :email %>
+	<%= t.text_field :email %>
+	<%= t.label :username %>
+	<%= t.text_field :username %>
+	<%= t.label :password %>
+	<%= t.password_field :password %>
+	<%= t.submit :create %>
+<% end %>
+
+<p><%= link_to "Home", users_path %></p>
