@@ -2,18 +2,22 @@ class PostsController < ApplicationController
 
 	def index
 		@posts = Post.all
+		@user = current_user
 	end
 
 	def show
 		@post = Post.find(params[:id])
+		@user = current_user
 	end
 
 	def new
 		@post = Post.new
+		@user = current_user
 	end
 
 	def create
 		@post = Post.new(params[:post])
+		@user = current_user
 		if @post.save
 			flash[:notice] = "Your thoughts are in the world now"
 			redirect_to posts_path
@@ -24,10 +28,12 @@ class PostsController < ApplicationController
 	end
 
 	def edit
+		@user = current_user
 		@post = Post.find(params[:id])
 	end
 
 	def update
+		@user = current_user
 		@post = Post.find(params[:id])
 		@post.update(params[:post])
 		@post.save
@@ -36,6 +42,7 @@ class PostsController < ApplicationController
 	end
 
 	def destroy
+		@user = current_user
 		@post = Post.find(params[:id])
 		if @post.destroy
 			flash[:notice] = "Post destroyed"
